@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FormASP.NET_Core.Entities.User>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Form</title>
+    <style>
+        img{
+            width:100px;
+            height:100px;
+            padding-left:1em
+        }
+        .rn{
+            width:15em;
+            height:5em;
+            background-color:deepskyblue
+        }
+        .Button{
+            width:15em;
+            height:15em;
+            background-color:deeppink
+        }
+    </style>
+</head>
+<body>
+
+
+    <div style="border-radius:10px; background-color:aquamarine">
+        @foreach (var item in Model)
+        {
+            <div style="border-radius:10px; width:15em; background-color:red">
+                <img src="@Url.Content(item.ImagePath)" />
+                <h1>@item.Name</h1>
+                <h1>@item.Surname</h1>
+                <h1>@item.Age</h1>
+            </div>
+        }
+    </div>
+
+    <input type="button" value="Some text" onclick="@("window.location.href='" + @Url.Action("Register", "Home") + "'");" />
+
+
+</body>
+</html>
